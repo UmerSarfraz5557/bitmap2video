@@ -74,7 +74,7 @@ class Muxer(private val context: Context, private val file: File) {
         for (image in imageList) {
             frameBuilder.createFrame(image)
         }
-
+        Log.d(TAG, "Frames Created")
         // Release the video codec so we can mux in the audio frames separately
         frameBuilder.releaseVideoCodec()
 
@@ -83,7 +83,7 @@ class Muxer(private val context: Context, private val file: File) {
             frameBuilder.muxAudioFrames()
         }
 
-
+        Log.d(TAG, "Releasing Audio")
         // Release everything
         frameBuilder.releaseAudioExtractor()
         frameBuilder.releaseMuxer()
