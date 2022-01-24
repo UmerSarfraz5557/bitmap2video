@@ -58,7 +58,9 @@ class FrameBuilder(
 
     private val mediaCodec: MediaCodec = run {
         val codecs = MediaCodecList(REGULAR_CODECS)
-        MediaCodec.createByCodecName(codecs.findEncoderForFormat(mediaFormat))
+        val fo = codecs.findEncoderForFormat(mediaFormat)
+        Log.d(TAG,"The format is $fo")
+        MediaCodec.createByCodecName(fo)
     }
 
     private val bufferInfo: MediaCodec.BufferInfo = MediaCodec.BufferInfo()
