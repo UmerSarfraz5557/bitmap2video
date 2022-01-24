@@ -58,8 +58,11 @@ class FrameBuilder(
 
     private val mediaCodec: MediaCodec = run {
         val codecs = MediaCodecList(REGULAR_CODECS)
-        val fo = codecs.findEncoderForFormat(mediaFormat)
+        var fo = codecs.findEncoderForFormat(mediaFormat)
         Log.d(TAG,"The format is $fo")
+        if(fo== null){
+            fo = "c2.android.avc.encoder"
+        }
         MediaCodec.createByCodecName(fo)
     }
 
