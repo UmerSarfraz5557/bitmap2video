@@ -63,6 +63,7 @@ class FrameBuilder(
         if(fo== null){
             fo = "c2.android.avc.encoder"
         }
+        Log.d(TAG,"The format is $fo")
         MediaCodec.createByCodecName(fo)
     }
 
